@@ -21,6 +21,7 @@
           "Quartz": "3.10.0",
           "ScoutDirect.Application": "1.0.0",
           "ScoutDirect.FcmPusher": "1.0.0",
+          "ScoutDirect.Payment": "1.0.0",
           "ScoutDirect.infrastructure": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "elmah": "1.2.2"
@@ -52,11 +53,11 @@
           }
         }
       },
-      "BouncyCastle.Cryptography/2.3.1": {
+      "BouncyCastle.Cryptography/2.4.0": {
         "runtime": {
           "lib/net6.0/BouncyCastle.Cryptography.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.3.1.17862"
+            "fileVersion": "2.4.0.33771"
           }
         }
       },
@@ -314,6 +315,18 @@
           "lib/netstandard2.0/LazyCache.dll": {
             "assemblyVersion": "2.4.0.174",
             "fileVersion": "2.4.0.174"
+          }
+        }
+      },
+      "MailKit/4.7.1.1": {
+        "dependencies": {
+          "MimeKit": "4.7.1",
+          "System.Formats.Asn1": "8.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/MailKit.dll": {
+            "assemblyVersion": "4.7.0.0",
+            "fileVersion": "4.7.1.1"
           }
         }
       },
@@ -640,7 +653,7 @@
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "Microsoft.IdentityModel.Logging": "6.35.0",
-          "System.Security.Cryptography.Cng": "4.7.0"
+          "System.Security.Cryptography.Cng": "4.5.0"
         },
         "runtime": {
           "lib/net6.0/Microsoft.IdentityModel.Tokens.dll": {
@@ -694,9 +707,22 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
+      "MimeKit/4.7.1": {
+        "dependencies": {
+          "BouncyCastle.Cryptography": "2.4.0",
+          "System.Formats.Asn1": "8.0.1",
+          "System.Security.Cryptography.Pkcs": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/MimeKit.dll": {
+            "assemblyVersion": "4.7.0.0",
+            "fileVersion": "4.7.1.0"
+          }
+        }
+      },
       "MySql.Data/9.0.0": {
         "dependencies": {
-          "BouncyCastle.Cryptography": "2.3.1",
+          "BouncyCastle.Cryptography": "2.4.0",
           "Google.Protobuf": "3.26.1",
           "K4os.Compression.LZ4.Streams": "1.3.8",
           "System.Buffers": "4.5.1",
@@ -956,6 +982,7 @@
       },
       "System.Diagnostics.DiagnosticSource/8.0.1": {},
       "System.Diagnostics.EventLog/8.0.0": {},
+      "System.Formats.Asn1/8.0.1": {},
       "System.Globalization/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1106,10 +1133,10 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "System.Security.Cryptography.Cng/4.7.0": {},
-      "System.Security.Cryptography.Pkcs/4.7.0": {
+      "System.Security.Cryptography.Cng/4.5.0": {},
+      "System.Security.Cryptography.Pkcs/8.0.0": {
         "dependencies": {
-          "System.Security.Cryptography.Cng": "4.7.0"
+          "System.Formats.Asn1": "8.0.1"
         }
       },
       "System.Security.Cryptography.ProtectedData/8.0.0": {
@@ -1122,7 +1149,7 @@
       },
       "System.Security.Cryptography.Xml/4.7.0": {
         "dependencies": {
-          "System.Security.Cryptography.Pkcs": "4.7.0",
+          "System.Security.Cryptography.Pkcs": "8.0.0",
           "System.Security.Permissions": "8.0.0"
         }
       },
@@ -1322,6 +1349,7 @@
           "Microsoft.AspNetCore.Http.Features": "5.0.16",
           "Newtonsoft.Json": "13.0.3",
           "ScoutDirect.Core": "1.0.0",
+          "ScoutDirect.FcmPusher": "1.0.0",
           "System.ServiceModel.Duplex": "4.8.1",
           "System.ServiceModel.Federation": "4.8.1",
           "System.ServiceModel.Http": "4.8.1",
@@ -1347,6 +1375,7 @@
       "ScoutDirect.FcmPusher/1.0.0": {
         "dependencies": {
           "FirebaseAdmin": "3.0.0",
+          "MailKit": "4.7.1.1",
           "Newtonsoft.Json": "13.0.3",
           "ScoutDirect.Core": "1.0.0"
         },
@@ -1361,10 +1390,16 @@
           "MySql.Data": "9.0.0",
           "MySql.EntityFrameworkCore": "8.0.5",
           "Pomelo.EntityFrameworkCore.MySql": "8.0.2",
-          "ScoutDirect.Core": "1.0.0"
+          "ScoutDirect.Core": "1.0.0",
+          "ScoutDirect.FcmPusher": "1.0.0"
         },
         "runtime": {
           "ScoutDirect.infrastructure.dll": {}
+        }
+      },
+      "ScoutDirect.Payment/1.0.0": {
+        "runtime": {
+          "ScoutDirect.Payment.dll": {}
         }
       }
     }
@@ -1389,12 +1424,12 @@
       "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512"
     },
-    "BouncyCastle.Cryptography/2.3.1": {
+    "BouncyCastle.Cryptography/2.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-buwoISwecYke3CmgG1AQSg+sNZjJeIb93vTAtJiHZX35hP/teYMxsfg0NDXGUKjGx6BKBTNKc77O2M3vKvlXZQ==",
-      "path": "bouncycastle.cryptography/2.3.1",
-      "hashPath": "bouncycastle.cryptography.2.3.1.nupkg.sha512"
+      "sha512": "sha512-SwXsAV3sMvAU/Nn31pbjhWurYSjJ+/giI/0n6tCrYoupEK34iIHCuk3STAd9fx8yudM85KkLSVdn951vTng/vQ==",
+      "path": "bouncycastle.cryptography/2.4.0",
+      "hashPath": "bouncycastle.cryptography.2.4.0.nupkg.sha512"
     },
     "elmah/1.2.2": {
       "type": "package",
@@ -1563,6 +1598,13 @@
       "sha512": "sha512-THig17vqe5PEs3wvTqFrNzorz2nD4Qz9F9C3YlAydU673CogAO8z1u8NNJD6x52I7oDCQ/N/HwJIZMBH8Y/Qiw==",
       "path": "lazycache/2.4.0",
       "hashPath": "lazycache.2.4.0.nupkg.sha512"
+    },
+    "MailKit/4.7.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y3okmIxu8g/ZcoJiE2i+dCeKgnNyddsXmcJslZnCPGVPP0aRyeVINHV1h97V+OVMdqjQI6O12J2p8Duwq5UEqQ==",
+      "path": "mailkit/4.7.1.1",
+      "hashPath": "mailkit.4.7.1.1.nupkg.sha512"
     },
     "MediatR/12.3.0": {
       "type": "package",
@@ -1921,6 +1963,13 @@
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
+    "MimeKit/4.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qoj4aVvhX14A1FNvaJ33hzOP4VZI2j+Mr38I9wSGcjMq4BYDtWLJG89aJ9nRW2cNfH6Czjwyp7+Mh++xv3AZvg==",
+      "path": "mimekit/4.7.1",
+      "hashPath": "mimekit.4.7.1.nupkg.sha512"
+    },
     "MySql.Data/9.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2096,6 +2145,13 @@
       "path": "system.diagnostics.eventlog/8.0.0",
       "hashPath": "system.diagnostics.eventlog.8.0.0.nupkg.sha512"
     },
+    "System.Formats.Asn1/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XqKba7Mm/koKSjKMfW82olQdmfbI5yqeoLV/tidRp7fbh5rmHAQ5raDI/7SU0swTzv+jgqtUGkzmFxuUg0it1A==",
+      "path": "system.formats.asn1/8.0.1",
+      "hashPath": "system.formats.asn1.8.0.1.nupkg.sha512"
+    },
     "System.Globalization/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2236,19 +2292,19 @@
       "path": "system.security.accesscontrol/4.7.0",
       "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Cng/4.7.0": {
+    "System.Security.Cryptography.Cng/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4WQjFuypWtxb/bl/YwEE7LYGn4fgpsikFfBU6xwEm4YBYiRAhXAEJ62lILBu2JJSFbClIAntFTGfDZafn8yZTg==",
-      "path": "system.security.cryptography.cng/4.7.0",
-      "hashPath": "system.security.cryptography.cng.4.7.0.nupkg.sha512"
+      "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
+      "path": "system.security.cryptography.cng/4.5.0",
+      "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Pkcs/4.7.0": {
+    "System.Security.Cryptography.Pkcs/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0Srzh6YlhjuMxaqMyeCCdZs22cucaUAG6SKDd3gNHBJmre0VZ71ekzWu9rvLD4YXPetyNdPvV6Qst+8C++9v3Q==",
-      "path": "system.security.cryptography.pkcs/4.7.0",
-      "hashPath": "system.security.cryptography.pkcs.4.7.0.nupkg.sha512"
+      "sha512": "sha512-ULmp3xoOwNYjOYp4JZ2NK/6NdTgiN1GQXzVVN1njQ7LOZ0d0B9vyMnhyqbIi9Qw4JXj1JgCsitkTShboHRx7Eg==",
+      "path": "system.security.cryptography.pkcs/8.0.0",
+      "hashPath": "system.security.cryptography.pkcs.8.0.0.nupkg.sha512"
     },
     "System.Security.Cryptography.ProtectedData/8.0.0": {
       "type": "package",
@@ -2427,6 +2483,11 @@
       "sha512": ""
     },
     "ScoutDirect.infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ScoutDirect.Payment/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
